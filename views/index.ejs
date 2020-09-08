@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+  <div class="container-fluid pt-3">
+    <div class="row justify-content-end p-3">
+      <div class="float-right">
+        <a class="btn btn-warning" href="/logout"> Logout </a>
+      </div>
+
+    </div>
+
+    <% if(me.accessLevel == 3) { %>
+    <h3>Admin</h3>
+    <h4><%= me.name %></h4>
+    <div>
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid w-100" src="http://lorempixel.com/400/200/nature/" alt="">
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid w-100" src="http://lorempixel.com/400/200/food/" alt="">
+
+        </div>
+      </div>
+    </div>
+
+    <% } %>
+
+
+    <% if(me.accessLevel == 2) { %>
+    <h3>Modrator</h3>
+    <h4><%= me.name %></h4>
+
+    <div class="row no-gutters">
+      <div class="col">
+        <img class="img-fluid w-100" src="http://lorempixel.com/400/200/sports/" alt="">
+
+      </div>
+      <div class="col">
+
+        <img class="img-fluid w-100" src="http://lorempixel.com/400/200/nature/" alt="">
+      </div>
+    </div>
+
+    <% } %>
+
+    <% if(me.accessLevel == 1) { %>
+    <h3>User</h3>
+    <h4><%= me.name %></h4>
+
+    <div>
+      <img class="img-fluid w-100" src="http://lorempixel.com/400/200/sports/" alt="">
+    </div>
+
+    <% } %>
+
+  </div>
+
+</body>
+
+</html>
